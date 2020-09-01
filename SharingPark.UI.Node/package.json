@@ -1,0 +1,9 @@
+{
+  "name": "sharing-park.ui.node",
+  "version": "0.0.0",
+  "description": "SharingPark.UI.Node",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}

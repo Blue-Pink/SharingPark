@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SharingPark.BLL\SharingPark.BLL.csproj" />
+    <ProjectReference Include="..\SharingPark.DAL\SharingPark.DAL.csproj" />
+    <ProjectReference Include="..\SharingPark.IBLL\SharingPark.IBLL.csproj" />
+    <ProjectReference Include="..\SharingPark.IDAL\SharingPark.IDAL.csproj" />
+  </ItemGroup>
+
+
+</Project>
