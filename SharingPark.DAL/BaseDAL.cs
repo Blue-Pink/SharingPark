@@ -1,10 +1,12 @@
-﻿using SharingPark.IDAL;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using SqlSugar;
 
 namespace SharingPark.DAL
 {
-    public class BaseDAL:IBaseDAL
+    class BaseDAL
     {
-        
+        //protected SqlSugarClient
     }
 }

@@ -1,15 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+using SharingPark.API.Controllers;
 using SharingPark.BLL;
 using SharingPark.DAL;
 using SharingPark.IBLL;
@@ -30,8 +28,31 @@ namespace SharingPark.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IBaseDAL, BaseDAL>();
-            services.AddTransient<IBaseBLL, BaseBLL>();
+            services.AddLogging();
+            services.AddTransient<IUserDAL, UserDAL>();
+            services.AddTransient<IUserBLL, UserBLL>();
+            services.AddTransient<ILogger, Logger<UserChannelController>>();
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("1.0.0", new OpenApiInfo()
+                {
+                    Title = "SharingPark.API",
+                    Version = "1.0.0",
+                    Description = "SharingPark.API.1.0.0 for ASP.NET Core",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Blue Pink",
+                        Email = "blue_pink_girl@outlook.com",
+                        Url = new Uri("https://space.bilibili.com/33854254")
+                    },
+                    License = new OpenApiLicense()
+                    {
+                        Name = "未知许可证",
+                        Url = new Uri("https://space.bilibili.com/33854254")
+                    }
+                });
+                options.IncludeXmlComments(Path.Combine(Path.GetDirectoryName(typeof(Program).Assembly.Location) ?? string.Empty, "SharingPark.API.xml"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +62,9 @@ namespace SharingPark.API
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+                options.SwaggerEndpoint("/swagger/1.0.0/swagger.json", "SharingPark.API"));
 
             app.UseHttpsRedirection();
 

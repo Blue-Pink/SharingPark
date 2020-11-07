@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SharingPark.IBLL\SharingPark.IBLL.csproj" />
+    <ProjectReference Include="..\SharingPark.IDAL\SharingPark.IDAL.csproj" />
   </ItemGroup>
 
 </Project>
