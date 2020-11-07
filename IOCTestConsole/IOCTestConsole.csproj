@@ -1,11 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BluePink.Framework\BluePink.Framework.csproj" />
+    <ProjectReference Include="..\SharingPark.BLL\SharingPark.BLL.csproj" />
+    <ProjectReference Include="..\SharingPark.DAL\SharingPark.DAL.csproj" />
     <ProjectReference Include="..\SharingPark.IBLL\SharingPark.IBLL.csproj" />
     <ProjectReference Include="..\SharingPark.IDAL\SharingPark.IDAL.csproj" />
   </ItemGroup>
