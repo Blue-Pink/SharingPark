@@ -15,7 +15,7 @@ namespace SharingPark.API.Controllers
     [ApiController]
     public class UserChannelController : BaseController
     {
-        private readonly IUserBLL _userBLL;
+        private IUserBLL _userBLL;
 
         public UserChannelController(ILogger logger, IUserBLL userBLL) : base(logger)
         {
@@ -31,7 +31,6 @@ namespace SharingPark.API.Controllers
         {
             try
             {
-                var result = _userBLL.ObtainSpUserInfo(a => true);
                 return new
                 {
                     result

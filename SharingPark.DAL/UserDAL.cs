@@ -17,7 +17,7 @@ namespace SharingPark.DAL
         }
 
         public List<SpUserInfo> ObtainSpUserInfo(Expression<Func<SpUserInfo, bool>> expression)
-        {
+    {
             throw new NotImplementedException();
         }
     }
